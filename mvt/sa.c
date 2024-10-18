@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmilin <tmilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 15:56:00 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/18 13:20:33 by tmilin           ###   ########.fr       */
+/*   Created: 2024/10/17 17:39:31 by tmilin            #+#    #+#             */
+/*   Updated: 2024/10/18 13:31:36 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h"
-
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-
-typedef struct s_tab
+void    sa(t_tab *a)
 {
-	int		**tab;
-	int		size;
-	int		top;
-}	t_tab;
+    int tmp;
 
-
-
-
-#endif
+    if (!a || a->top < 1)
+        return ;
+    tmp = a->tab[a->top];
+    a->tab[a->top] = a->tab[a->top - 1];
+    a->tab[a->top - 1] = tmp;
+}

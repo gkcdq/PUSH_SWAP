@@ -6,7 +6,7 @@
 /*   By: tmilin <tmilin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:42:07 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/11 13:36:24 by tmilin           ###   ########.fr       */
+/*   Updated: 2024/10/18 12:27:39 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
+# include <fcntl.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -36,8 +39,6 @@ int					ft_isdigit(int c);
 int					ft_isascii(int c);
 int					ft_isalnum(int c);
 int					ft_isprint(int c);
-int					ft_istoupper(int c);
-int					ft_istolower(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_atoi(const char *str);
