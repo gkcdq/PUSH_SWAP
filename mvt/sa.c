@@ -21,4 +21,5 @@ void    sa(t_tab *a)
     tmp = a->tab[a->top];
     a->tab[a->top] = a->tab[a->top - 1];
     a->tab[a->top - 1] = tmp;
+    ft_printf("sa\n");
 }
