@@ -15,12 +15,12 @@
 
 # include "libft.h"
 
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
+//# define INT_MAX 2147483647
+//# define INT_MIN -2147483648
 
 typedef struct s_tab
 {
-	int		**tab;
+	int		*tab;
 	int		size;
 	int		top;
 }	t_tab;
@@ -42,10 +42,24 @@ void    sa(t_tab *a);			//		swap a (2 premiers elements du top)
 void    sb(t_tab *b); 			//		swap b (2 premiers elements du top)
 void    ss(t_tab *a, t_tab *b);	//		swap a et b (2 premiers elements des 2 top)
 
+//algo1.c
+void    rotate_or_push_a(t_tab *a, t_tab *b);
 
-void    rotate_or_push(t_tab *a, t_tab *b);
-
-//init.c
+//parsing.c
 void    ft_parsing(int ac, char **av, t_tab *a);
+char 	**parse_and_get_size(int ac, char **av, int *size);
+void verif(char *arg);
+int ft_is_valid_number(char *str);
+void    ft_check_double(t_tab *a);
+void ft_compare_int(int a, int b);
+void free_args(char **args);
+
+//utils.c
+int		ft_atol(const char *str);
+void    check_atol(long number, int sign);
+
+t_tab *init_stack(int size);
+void    free_t_tab(t_tab *a, t_tab *b);
+int ft_check_tri(t_tab *a);
 
 #endif

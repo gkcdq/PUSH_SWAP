@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void    ra(t_tab *a)
+static void    rotatea(t_tab *a)
 {
     int first;
     int i;
@@ -48,7 +48,7 @@ static void    rotateb(t_tab *b)
 
 void    rr(t_tab *a, t_tab *b)
 {
-    ra(a);
+    rotatea(a);
     rotateb(b);
     ft_printf("rr\n");
 }

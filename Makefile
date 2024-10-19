@@ -1,12 +1,12 @@
 SRCS        = main.c mvt/sa.c mvt/ra.c mvt/sb.c mvt/rb.c mvt/ss.c mvt/pa.c mvt/pb.c \
-				mvt/rr.c mvt/rra.c mvt/rrb.c mvt/rrr.c algo1.c init.c
+				mvt/rr.c mvt/rra.c mvt/rrb.c mvt/rrr.c algo1.c parsing.c utils.c free.c
 OBJS        = $(SRCS:.c=.o)
 NAME        = push_swap
 CC          = cc
 RM          = rm -f
 CFLAGS      = -Wall -Wextra -Werror
 LDFLAGS     = -Llibft -lft
-INCLUDES    = -Ilibft
+INCLUDES    = -Ilibft 
 
 all: $(NAME)
 
