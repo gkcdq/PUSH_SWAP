@@ -74,7 +74,7 @@ void    ft_check_double(t_tab *a)
     while (i > 0)
     {
         j = i - 1;
-        while (j >= 0)
+        while (j > 0)
         {
             ft_compare_int(a->tab[i], a->tab[j]);
             j--;
@@ -86,7 +86,7 @@ void ft_compare_int(int a, int b)
 {
     if (a == b)
     {
-        ft_printf("Error\n");
+        ft_printf("Errorrrrrrrrrrrrrrrfdhgsdfgd\n");
         exit (1);
     }
 }

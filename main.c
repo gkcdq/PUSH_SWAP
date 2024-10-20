@@ -12,44 +12,6 @@
 
 #include "push_swap.h"
 
-int ft_check_tri(t_tab *a)
-{
-    int i;
-
-    i = 0;
-    while (i < a->top)
-    {
-        if (a->tab[i] > a->tab[i + 1])
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-void sort_jpp(t_tab *a)
-{
-        // 3 1 2
-        if (a->tab[0] > a->tab[1] && a->tab[0] > a->tab[2] && a->tab[1] < a->tab[2])
-            rra(a);
-        // 1 3 2
-        else if (a->tab[0] < a->tab[1] && a->tab[0] < a->tab[2] && a->tab[1] > a->tab[2])
-        {
-            sa(a);
-            ra(a);
-        }
-        // 2 1 3
-        else if (a->tab[0] > a->tab[1] && a->tab[0] < a->tab[2] && a->tab[1] < a->tab[2])
-            sa(a);
-        // 2 3 1
-        else if (a->tab[0] < a->tab[1] && a->tab[0] > a->tab[2] && a->tab[1] > a->tab[2])
-            rra(a);
-        // 3 2 1
-        else if (a->tab[0] > a->tab[1] && a->tab[1] > a->tab[2])
-        {
-            sa(a);
-            rra(a);
-    }
-}
 t_tab *init_stack(int size)
 {
     t_tab *stack;
@@ -80,11 +42,36 @@ int main(int ac, char **av)
     if (!a || !b)
         free_t_tab(a, b);
     ft_parsing(ac, av, a);
-    if (a->top == 2)
-        sort_jpp(a);
-    else if (!ft_check_tri(a) && a->top > 3)
-        //xxxxxxxxxxxx
-    free_t_tab(a, b);
+    if (a->top <= 2)
+        sort_tree(a);
+    if (a->top > 2)
+    {
+        push_initial_two(a, b);
+        if (a->top <= 2)
+            sort_tree(a);
+    }
+    while(!ft_check_tri(a) && a->top > 2)
+    {
+        rotate_or_push_a(a, b);
+        if (a->top == 2)
+            sort_tree(a);
+    }
+    int k = 0;
+    ft_printf("\n\npile a\n");
+    while (k < a->top + 1)
+    {
+        ft_printf("\n%d", a->tab[k]);
+        k++;
+    }
+    k = 0;
+    ft_printf("\n\npile b\n");
+    while (k < b->top + 1)
+    {
+        ft_printf("\n%d", b->tab[k]);
+        k++;
+    }
     return (0);
 }
+
+
 
