@@ -29,21 +29,12 @@ void sort_tree(t_tab *a)
     int biggest_nbr = find_max(a);
     if (!ft_check_tri(a))
     {
-        if (a->tab[0] == biggest_nbr)
+        if (!ft_check_tri(a) && a->tab[0] == biggest_nbr)
             ra(a);                    
-        else if (a->tab[1] == biggest_nbr) 
-            rra(a);                  
-        if (a->tab[a->top] > a->tab[1])
-            sa(a);                   
-    }
-}
-
-
-void push_back_to_a(t_tab *a, t_tab *b)
-{
-    while (b->top >= 0)
-    {
-        pa(b, a);
+        else if (!ft_check_tri(a) && a->tab[1] == biggest_nbr) 
+            rra(a);
+        if (!ft_check_tri(a) && a->tab[0] > a->tab[1])
+            sa(a);                                
     }
 }
 
@@ -52,7 +43,17 @@ void    rotate_or_push_a(t_tab *a, t_tab *b)
     if (!a || a->top < 1)
         return ;
     if (a->tab[a->top] > a->tab[0])
-        ra(a);
+        rra(a);
     else if (a->tab[a->top] < a->tab[0])
         pb(a, b);
+    if (a->top == 2)
+        sort_tree(a);
+}
+
+void push_back_to_a(t_tab *a, t_tab *b)
+{
+    while (b->top >= 0)
+    {
+        pa(b, a);
+    }
 }
