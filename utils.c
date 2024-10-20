@@ -35,22 +35,6 @@ void    check_atol(long number, int sign)
     }
 }
 
-int     find_max(t_tab *a)
-{
-    int i;
-    int j;
-
-    i = a->tab[0];
-    j = 0;
-    while (j < a->top)
-    {
-        if (i < a->tab[j])
-            i = a->tab[j];
-        j++;
-    }
-    return (i);
-}
-
 int ft_check_tri(t_tab *a)
 {
     int i;

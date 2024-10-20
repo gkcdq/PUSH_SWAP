@@ -58,7 +58,6 @@ void free_args(char **args);
 //utils.c
 int		ft_atol(const char *str);
 void    check_atol(long number, int sign);
-int     find_max(t_tab *a);
 int ft_check_tri(t_tab *a);
 
 void	sort_tree(t_tab *a);
@@ -68,10 +67,7 @@ void    free_t_tab(t_tab *a, t_tab *b);
 int ft_check_tri(t_tab *a);
 void    push_initial_two(t_tab *a, t_tab *b);
 
-void bring_min_to_top(t_tab *a);
-void push_back_to_a(t_tab *a, t_tab *b);
 
-int max(int a, int b);
-int find_min(t_tab *a);
+void push_back_to_a(t_tab *a, t_tab *b);
 
 #endif
