@@ -59,7 +59,14 @@ int	main(int ac, char **av)
 	ft_printf("\npile a\n");
 	while (k < a->top + 1)
 	{
-		ft_printf("\n%d", a->tab[k]);
+		ft_printf("%d\n", a->tab[k]);
+		k++;
+	}
+	k = 0;
+	ft_printf("\npile b\n");
+	while (k < b->top + 1)
+	{
+		ft_printf("%d\n", b->tab[k]);
 		k++;
 	}
 	return (0);
