@@ -30,6 +30,12 @@ t_tab	*init_stack(int size)
 	return (stack);
 }
 
+static void	push_b_to_a(t_tab *a, t_tab *b)
+{
+	while (b->top >= 0)
+        pa(a, b);
+}
+
 int	main(int ac, char **av)
 {
 	t_tab	*a;
@@ -55,6 +61,16 @@ int	main(int ac, char **av)
 	{
 		rotate_or_push_a(a, b);
 	}
+	push_b_to_a (a, b);
+
+
+
+
+
+
+
+
+
 	k = 0;
 	ft_printf("\npile a\n");
 	while (k < a->top + 1)
@@ -69,5 +85,6 @@ int	main(int ac, char **av)
 		ft_printf("%d\n", b->tab[k]);
 		k++;
 	}
+	free_t_tab(a, b);
 	return (0);
 }

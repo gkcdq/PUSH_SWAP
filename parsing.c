@@ -6,7 +6,7 @@ char **parse_and_get_size(int ac, char **av, int *size)
 
     if (ac == 2)
     {
-        args = ft_split(av[1], ' ');
+        args = push_swap_split(av[1]);
         *size = 0;
         while (args[*size])
             (*size)++;
@@ -23,11 +23,11 @@ void ft_parsing(int ac, char **av, t_tab *a)
 {
     int i;
     char **args;
-    int size;
+    //int size;
 
     i = 0;
-    args = parse_and_get_size(ac, av, &size);
-    while (i < size)
+    args = parse_and_get_size(ac, av, &a->size);
+    while (i < a->size)
     {
         verif(args[i]);
         a->tab[++a->top] = ft_atol(args[i]);
@@ -86,7 +86,7 @@ void ft_compare_int(int a, int b)
 {
     if (a == b)
     {
-        ft_printf("Errorrrrrrrrrrrrrrrfdhgsdfgd\n");
+        ft_printf("Error\n");
         exit (1);
     }
 }

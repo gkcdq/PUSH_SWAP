@@ -59,6 +59,7 @@ void free_args(char **args);
 int		ft_atol(const char *str);
 void    check_atol(long number, int sign);
 int ft_check_tri(t_tab *a);
+char    **push_swap_split(char *str);
 
 void	sort_tree(t_tab *a);
 

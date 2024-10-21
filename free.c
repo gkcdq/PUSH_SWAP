@@ -9,6 +9,7 @@ void	free_t_tab(t_tab *a, t_tab *b)
 	}
 	if (b)
 	{
+		free(b->tab);
 		free(b);
 	}
 	return ;

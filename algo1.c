@@ -49,11 +49,3 @@ void    rotate_or_push_a(t_tab *a, t_tab *b)
     if (a->top == 2)
         sort_tree(a);
 }
-
-void push_back_to_a(t_tab *a, t_tab *b)
-{
-    while (b->top >= 0)
-    {
-        pa(b, a);
-    }
-}

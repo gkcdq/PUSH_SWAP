@@ -18,6 +18,8 @@ void    pb(t_tab *a, t_tab *b)
 
     if (!a || !b || (a->top == -1))
         return ;
+    if (b->top + 1 >= b->size)
+        return ;
     x_a = a->tab[a->top];
     b->top++;
     b->tab[b->top] = x_a;
