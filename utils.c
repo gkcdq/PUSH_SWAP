@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_atol(const char *str)
+int	ft_atol(char *str)
 {
 	int	    i;
 	int	    sign;
@@ -55,28 +55,25 @@ int ft_check_tri(t_tab *a)
 
 
 
-static void ft_freetab(char **strs)
+// Free the allocated memory for an array of strings
+void ft_freetab(char **strs)
 {
-    int i;
-
     if (!strs)
         return;
-    i = 0;
-    while (strs[i])
+    for (int i = 0; strs[i]; i++)
     {
         free(strs[i]);
-        i++;
     }
     free(strs);
 }
 
+// Check if the character is a whitespace character
 static int ft_isspace(char c)
 {
-    if (c <= 32)
-        return (1);
-    return (0);
+    return (c <= 32);
 }
 
+// Count the number of words in the string
 static int ft_count_words(char *str)
 {
     int i;
@@ -86,19 +83,19 @@ static int ft_count_words(char *str)
     count = 0;
     while (str[i])
     {
-        while (str[i] && ft_isspace(str[i]))
-            i++;
-        if (str[i] && !ft_isspace(str[i]))
-            count++;
-        while (str[i] && !ft_isspace(str[i]))
-            i++;
+    while (str[i] && ft_isspace(str[i]))
+        i++;
+    if (str[i] && !ft_isspace(str[i]))
+        count++;
+    while (str[i] && !ft_isspace(str[i]))
+        i++;
     }
     return (count);
 }
 
-static void    ft_putstrs(char **strs, char *str, int words)
+void    ft_putstrs(char **strs, char *str, int words)
 {
-    static int i;
+    int i;
     int j;
     int start;
     int end;
@@ -125,13 +122,13 @@ static void    ft_putstrs(char **strs, char *str, int words)
 
 char    **push_swap_split(char *str)
 {
-int words;
-char    **strs;
+    int words;
+    char    **strs;
 
     words = ft_count_words(str);
     if (!words)
-        return (NULL);
-    strs = malloc(sizeof(char *) * (words + 1));
+    return (NULL);
+        strs = malloc(sizeof(char *) * (words + 1));
     if (!strs)
         return (NULL);
     ft_putstrs(strs, str, words);

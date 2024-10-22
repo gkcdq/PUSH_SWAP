@@ -9,7 +9,9 @@ char **parse_and_get_size(int ac, char **av, int *size)
         args = push_swap_split(av[1]);
         *size = 0;
         while (args[*size])
+        {
             (*size)++;
+        }
     }
     else
     {
@@ -23,11 +25,11 @@ void ft_parsing(int ac, char **av, t_tab *a)
 {
     int i;
     char **args;
-    //int size;
+    int size;
 
     i = 0;
-    args = parse_and_get_size(ac, av, &a->size);
-    while (i < a->size)
+    args = parse_and_get_size(ac, av, &size);
+    while (i < size)
     {
         verif(args[i]);
         a->tab[++a->top] = ft_atol(args[i]);

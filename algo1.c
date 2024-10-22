@@ -27,15 +27,12 @@ int     find_max(t_tab *a)
 void sort_tree(t_tab *a)
 {
     int biggest_nbr = find_max(a);
-    if (!ft_check_tri(a))
-    {
-        if (!ft_check_tri(a) && a->tab[0] == biggest_nbr)
-            ra(a);                    
-        else if (!ft_check_tri(a) && a->tab[1] == biggest_nbr) 
-            rra(a);
-        if (!ft_check_tri(a) && a->tab[0] > a->tab[1])
-            sa(a);                                
-    }
+    if (a->tab[0] == biggest_nbr)
+        ra(a);                    
+    else if (a->tab[1] == biggest_nbr) 
+        rra(a);
+    if (a->tab[0] > a->tab[1])
+        sa(a);                                
 }
 
 void    rotate_or_push_a(t_tab *a, t_tab *b)

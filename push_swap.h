@@ -48,7 +48,6 @@ void    rotate_or_push_a(t_tab *a, t_tab *b);
 
 //parsing.c
 void    ft_parsing(int ac, char **av, t_tab *a);
-char 	**parse_and_get_size(int ac, char **av, int *size);
 void verif(char *arg);
 int ft_is_valid_number(char *str);
 void    ft_check_double(t_tab *a);
@@ -56,10 +55,11 @@ void ft_compare_int(int a, int b);
 void free_args(char **args);
 
 //utils.c
-int		ft_atol(const char *str);
+int		ft_atol(char *str);
 void    check_atol(long number, int sign);
 int ft_check_tri(t_tab *a);
 char    **push_swap_split(char *str);
+void ft_freetab(char **strs);
 
 void	sort_tree(t_tab *a);
 
@@ -69,6 +69,7 @@ int ft_check_tri(t_tab *a);
 void    push_initial_two(t_tab *a, t_tab *b);
 
 
-void push_back_to_a(t_tab *a, t_tab *b);
+void ft_parsing(int ac, char **av, t_tab *a);
+
 
 #endif
