@@ -46,3 +46,32 @@ void    rotate_or_push_a(t_tab *a, t_tab *b)
     if (a->top == 2)
         sort_tree(a);
 }
+
+int sort_in_tab_to_median(t_tab *a) 
+{
+    int i, j;
+    int median;
+    int *tab;
+
+    tab = malloc(sizeof(int) * a->size);
+    i = 0;
+    while(i < a->size)
+    {
+        tab[i] = a->tab[i];
+        i++;
+    }
+    i = 0;
+    while (i < a->size - 1)
+    {
+        j = 0;
+        while (j < a->size - i - 1) 
+        {
+            if (tab[j] > tab[j + 1]) 
+                ft_swap(&tab[j], &tab[j + 1]);
+            j++;
+        }
+        i++;
+    }
+    median = tab[a->size / 2];
+    return (median);
+}
