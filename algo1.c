@@ -43,6 +43,8 @@ void    rotate_or_push_a(t_tab *a, t_tab *b)
         rra(a);
     else if (a->tab[a->top] < a->tab[0])
         pb(a, b);
+    //if (b->tab[0] >= a->median)
+        //rb(b);
     if (a->top == 2)
         sort_tree(a);
 }
