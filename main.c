@@ -54,7 +54,7 @@ int main(int ac, char **av)
 	{
         a->median = sort_in_tab_to_median(a);
         ft_printf("median = %d\n", a->median);
-        push_initial_two(a, b);
+        //push_initial_two(a, b);
     }
     while (!ft_check_tri(a) && a->top > 2) 
 	{
