@@ -50,11 +50,11 @@ int main(int ac, char **av)
     ft_parsing(ac, av, a);
 	if (a->top == 2)
         sort_tree(a);
-    if (a->top > 2) 
+    if (!ft_check_tri(a) && a->top > 2) 
 	{
         push_initial_two(a, b);
     }
-    while (a->top > 2) 
+    while (!ft_check_tri(a) && a->top > 2) 
 	{
         rotate_or_push_a(a, b);
     }
