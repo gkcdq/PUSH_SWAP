@@ -47,6 +47,7 @@ int main(int ac, char **av)
         b = init_stack(size);
 		free_args(args);
     } 
+    //reverse a->tab
     ft_parsing(ac, av, a);
     //if (!ft_check_tri(a) && a->top > 2) 
 	//{
@@ -55,7 +56,7 @@ int main(int ac, char **av)
         //push_initial_two(a, b);
     //}
     a->median = sort_in_tab_to_median(a);
-    ft_printf("median = %d\n", a->median);
+   // ft_printf("median = %d\n", a->median);
     while (!ft_check_tri(a)) 
 	{
         if (a->top <= 2)

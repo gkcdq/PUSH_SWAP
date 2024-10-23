@@ -25,7 +25,6 @@ typedef struct s_tab
 	int		size;
 	int		top;
 	int		median;
-	int		index;
 }	t_tab;
 
 //moovement_fonctions

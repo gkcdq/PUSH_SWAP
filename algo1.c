@@ -41,7 +41,7 @@ void    rotate_or_push_a(t_tab *a, t_tab *b)
     if (!a || a->top < 1)
         return ;
     if (a->tab[0] < a->tab[a->top])
-        ra(a);
+        rra(a);
     else if (a->tab[0] > a->tab[a->top])
     {
         pb(a, b);
@@ -76,5 +76,6 @@ int sort_in_tab_to_median(t_tab *a)
         i++;
     }
     median = tab[a->size / 2];
+    free(tab);
     return (median);
 }
