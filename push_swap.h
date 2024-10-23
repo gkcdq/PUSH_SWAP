@@ -24,6 +24,8 @@ typedef struct s_tab
 	int		*tab;
 	int		size;
 	int		top;
+	int		median;
+	int		index;
 }	t_tab;
 
 //moovement_fonctions
@@ -68,7 +70,8 @@ void    free_t_tab(t_tab *a, t_tab *b);
 int ft_check_tri(t_tab *a);
 void    push_initial_two(t_tab *a, t_tab *b);
 
-
+void    ft_swap(int *a, int *b);
+int sort_in_tab_to_median(t_tab *a);
 void ft_parsing(int ac, char **av, t_tab *a);
 
 

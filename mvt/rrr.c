@@ -34,7 +34,7 @@ static void    rrrb(t_tab *b)
     int last;
     int i;
 
-    if (!b || (b->top == -1))
+    if (!b || (b->top < 1))
         return ;
     last = b->tab[b->top];
     i = b->top;

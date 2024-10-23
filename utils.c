@@ -134,3 +134,12 @@ char    **push_swap_split(char *str)
     ft_putstrs(strs, str, words);
     return (strs);
 }
+
+void    ft_swap(int *a, int *b)
+{
+    int tmp;
+
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
+}

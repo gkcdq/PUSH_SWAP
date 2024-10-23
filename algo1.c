@@ -37,16 +37,17 @@ void sort_tree(t_tab *a)
 
 void    rotate_or_push_a(t_tab *a, t_tab *b)
 {
+    int x = a->median;
     if (!a || a->top < 1)
         return ;
-    if (a->tab[a->top] > a->tab[0])
-        rra(a);
-    else if (a->tab[a->top] < a->tab[0])
+    if (a->tab[0] < a->tab[a->top])
+        ra(a);
+    else if (a->tab[0] > a->tab[a->top])
+    {
         pb(a, b);
-    //if (b->tab[0] >= a->median)
-        //rb(b);
-    if (a->top == 2)
-        sort_tree(a);
+        if (b->tab[b->top] >= x)
+            rrb(b);
+    }
 }
 
 int sort_in_tab_to_median(t_tab *a) 

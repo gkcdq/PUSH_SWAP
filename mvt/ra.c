@@ -21,7 +21,7 @@ void    ra(t_tab *a)
         return ;
     first = a->tab[0];
     i = 0;
-    while (i < a->top)
+    while (i <= a->top)
     {
         a->tab[i] = a->tab[i + 1];
         i++;

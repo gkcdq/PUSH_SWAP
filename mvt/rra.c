@@ -15,7 +15,7 @@
 void    rra(t_tab *a)
 {
     int last;
-    int i = 0;
+    int i;
 
     if (!a || a->top < 1)
         return ;

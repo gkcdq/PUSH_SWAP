@@ -48,17 +48,20 @@ int main(int ac, char **av)
 		free_args(args);
     } 
     ft_parsing(ac, av, a);
-	if (a->top == 2)
-        sort_tree(a);
-    if (!ft_check_tri(a) && a->top > 2) 
-	{
-        a->median = sort_in_tab_to_median(a);
-        ft_printf("median = %d\n", a->median);
+    //if (!ft_check_tri(a) && a->top > 2) 
+	//{
+        //a->median = sort_in_tab_to_median(a);
+        //ft_printf("median = %d\n", a->median);
         //push_initial_two(a, b);
-    }
-    while (!ft_check_tri(a) && a->top > 2) 
+    //}
+    a->median = sort_in_tab_to_median(a);
+    ft_printf("median = %d\n", a->median);
+    while (!ft_check_tri(a)) 
 	{
-        rotate_or_push_a(a, b);
+        if (a->top <= 2)
+            sort_tree(a);
+        else if (a->top > 2)
+            rotate_or_push_a(a, b);
     }
 
 

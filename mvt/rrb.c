@@ -17,7 +17,7 @@ void    rrb(t_tab *b)
     int last;
     int i;
 
-    if (!b || (b->top == -1))
+    if (!b || (b->top < 1))
         return ;
     last = b->tab[b->top];
     i = b->top;
@@ -26,6 +26,6 @@ void    rrb(t_tab *b)
         b->tab[i] = b->tab[i - 1];
         i--;
     }
-    b->tab[b->top] = last;
+    b->tab[0] = last;
     ft_printf("rrb\n");
 }
