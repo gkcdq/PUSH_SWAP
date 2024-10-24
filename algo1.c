@@ -1,81 +1,91 @@
 #include "push_swap.h"
 
-void push_initial_two(t_tab *a, t_tab *b)
+void	push_initial_two(t_tab *a, t_tab *b)
 {
-    if (a->top == 3)
-        pb(a, b);
-    else
+	if (a->top == 3)
+		pb(a, b);
+	else
+	{
+		pb(a, b);
+		pb(a, b);
+	}
+}
+
+int	find_max(t_tab *a)
+{
+	int	i;
+	int	j;
+
+	i = INT_MIN;
+	j = 0;
+	while (j < a->top)
+	{
+		if (a->tab[j] > i)
+			i = a->tab[j];
+		j++;
+	}
+	return (i);
+}
+
+void	sort_tree(t_tab *a)
+{
+	int	biggest_nbr;
+
+	biggest_nbr = find_max(a);
+	if (a->tab[a->top] == biggest_nbr)
+		ra(a);
+	else if (a->tab[1] == biggest_nbr)
+		rra(a);
+	if (a->tab[a->top] > a->tab[1])
     {
-        pb(a, b);
-        pb(a, b);
+        ft_printf("a->tab[a->top] = %d | a->tab[a->top + 1] = %d\n", a->tab[a->top], a->tab[a->top + 1]);
+		sa(a);
     }
 }
 
-int     find_max(t_tab *a)
+void	rotate_or_push_a(t_tab *a, t_tab *b)
 {
-    int i = a->tab[0];
-    int j = 0;
-    while (j < a->top)
-    {
-        if (a->tab[j] > i)
-            i = a->tab[j];
-        j++;
-    }
-    return (i);
+	int	x;
+
+	x = a->median;
+	ft_printf("a->top = %d | a->bottom = %d\n", a->tab[a->top], a->tab[0]);
+	if (a->tab[a->top] > a->tab[0])
+		ra(a);
+	else
+	{
+		pb(a, b);
+		ft_printf("b->tab[b->top] = %d | median = %d\n", b->tab[b->top], x);
+		if (b->tab[b->top] >= x)
+			rb(b);
+	}
 }
 
-void sort_tree(t_tab *a)
+int	sort_in_tab_to_median(t_tab *a)
 {
-    int biggest_nbr = find_max(a);
-    if (a->tab[0] == biggest_nbr)
-        ra(a);                    
-    else if (a->tab[1] == biggest_nbr) 
-        rra(a);
-    if (a->tab[0] > a->tab[1])
-        sa(a);                                
-}
+	int	median;
+	int	*tab;
 
-void    rotate_or_push_a(t_tab *a, t_tab *b)
-{
-    int x = a->median;
-    if (!a || a->top < 1)
-        return ;
-    if (a->tab[0] < a->tab[a->top])
-        rra(a);
-    else if (a->tab[0] > a->tab[a->top])
-    {
-        pb(a, b);
-        if (b->tab[b->top] >= x)
-            rrb(b);
-    }
-}
-
-int sort_in_tab_to_median(t_tab *a) 
-{
-    int i, j;
-    int median;
-    int *tab;
-
-    tab = malloc(sizeof(int) * a->size);
-    i = 0;
-    while(i < a->size)
-    {
-        tab[i] = a->tab[i];
-        i++;
-    }
-    i = 0;
-    while (i < a->size - 1)
-    {
-        j = 0;
-        while (j < a->size - i - 1) 
-        {
-            if (tab[j] > tab[j + 1]) 
-                ft_swap(&tab[j], &tab[j + 1]);
-            j++;
-        }
-        i++;
-    }
-    median = tab[a->size / 2];
-    free(tab);
-    return (median);
+	int i, j;
+	tab = malloc(sizeof(int) * a->size);
+	i = 0;
+	while (i < a->size)
+	{
+		tab[i] = a->tab[i];
+		i++;
+	}
+	i = 0;
+	while (i < a->size - 1)
+	{
+		j = 0;
+		while (j < a->size - i - 1)
+		{
+			if (tab[j] > tab[j + 1])
+				ft_swap(&tab[j], &tab[j + 1]);
+			j++;
+		}
+		i++;
+	}
+	median = tab[a->size / 2];
+	free(tab);
+	return (median);
 }

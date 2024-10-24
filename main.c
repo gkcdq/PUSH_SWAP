@@ -29,6 +29,19 @@ t_tab *init_stack(int size)
     return stack;
 }
 
+int    *reverse_tab(int *tab, int size)
+{
+    int i;
+
+    i = 0;
+    while (i < (size / 2))
+    {
+        ft_swap(&tab[i], &tab[size - i - 1]);
+        i++;
+    }
+    return (tab);
+}
+
 int main(int ac, char **av) 
 {
     if (ac < 2)
@@ -49,6 +62,8 @@ int main(int ac, char **av)
     } 
     //reverse a->tab
     ft_parsing(ac, av, a);
+    reverse_tab(a->tab, a->size);
+
     //if (!ft_check_tri(a) && a->top > 2) 
 	//{
         //a->median = sort_in_tab_to_median(a);
@@ -56,15 +71,16 @@ int main(int ac, char **av)
         //push_initial_two(a, b);
     //}
     a->median = sort_in_tab_to_median(a);
-   // ft_printf("median = %d\n", a->median);
-    while (!ft_check_tri(a)) 
-	{
+    ft_printf("median = %d\n", a->median);
+    ft_printf("a->tab[a->top] = %d\n", a->tab[a->top]);
+     ft_printf("a->tab[0] = %d\n", a->tab[0]);
+      ft_printf("a->top = %d\n", a->top);
+    while (!ft_check_tri(a) && a->top > 2)
+    {
+        rotate_or_push_a(a, b);
         if (a->top <= 2)
             sort_tree(a);
-        else if (a->top > 2)
-            rotate_or_push_a(a, b);
     }
-
 
 
     int k = 0;

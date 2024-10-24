@@ -14,18 +14,18 @@
 
 void    rra(t_tab *a)
 {
-    int last;
+    int first;
     int i;
 
     if (!a || a->top < 1)
         return ;
-    last = a->tab[a->top];
-    i = a->top;
-    while (i > 0)
+    first = a->tab[0];
+    i = 0;
+    while (i < a->top)
     {
-        a->tab[i] = a->tab[i - 1];
-        i--;
+        a->tab[i] = a->tab[i + 1];
+        i++;
     }
-    a->tab[0] = last;
+    a->tab[a->top] = first;
     ft_printf("rra\n");
 }

@@ -14,18 +14,16 @@
 
 void    rrb(t_tab *b)
 {
-    int last;
+    int first;
     int i;
 
-    if (!b || (b->top < 1))
-        return ;
-    last = b->tab[b->top];
-    i = b->top;
-    while (i > 0)
+    first = b->tab[0];
+    i = 0;
+    while (i < b->top)
     {
-        b->tab[i] = b->tab[i - 1];
-        i--;
+        b->tab[i] = b->tab[i + 1];
+        i++;
     }
-    b->tab[0] = last;
+    b->tab[b->top] = first;
     ft_printf("rrb\n");
 }
