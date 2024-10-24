@@ -60,21 +60,16 @@ int main(int ac, char **av)
         b = init_stack(size);
 		free_args(args);
     } 
-    //reverse a->tab
+
     ft_parsing(ac, av, a);
     reverse_tab(a->tab, a->size);
-
-    //if (!ft_check_tri(a) && a->top > 2) 
-	//{
-        //a->median = sort_in_tab_to_median(a);
-        //ft_printf("median = %d\n", a->median);
-        //push_initial_two(a, b);
-    //}
     a->median = sort_in_tab_to_median(a);
     ft_printf("median = %d\n", a->median);
     ft_printf("a->tab[a->top] = %d\n", a->tab[a->top]);
-     ft_printf("a->tab[0] = %d\n", a->tab[0]);
-      ft_printf("a->top = %d\n", a->top);
+    ft_printf("a->tab[0] = %d\n", a->tab[0]);
+    ft_printf("a->top = %d\n", a->top);
+    if (a->top <= 2)
+            sort_tree(a);
     while (!ft_check_tri(a) && a->top > 2)
     {
         rotate_or_push_a(a, b);

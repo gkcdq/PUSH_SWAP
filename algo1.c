@@ -16,9 +16,9 @@ int	find_max(t_tab *a)
 	int	i;
 	int	j;
 
-	i = INT_MIN;
+	i = a->tab[0];
 	j = 0;
-	while (j < a->top)
+	while (j < a->top + 1)
 	{
 		if (a->tab[j] > i)
 			i = a->tab[j];
@@ -32,13 +32,17 @@ void	sort_tree(t_tab *a)
 	int	biggest_nbr;
 
 	biggest_nbr = find_max(a);
-	if (a->tab[a->top] == biggest_nbr)
+	ft_printf("biggest_nbr = %d\n", biggest_nbr);
+	if (a->tab[2] == biggest_nbr)
 		ra(a);
 	else if (a->tab[1] == biggest_nbr)
+	{
+		ft_printf("a->tab[1] = %d\n", a->tab[1]);
 		rra(a);
+	}
 	if (a->tab[a->top] > a->tab[1])
     {
-        ft_printf("a->tab[a->top] = %d | a->tab[a->top + 1] = %d\n", a->tab[a->top], a->tab[a->top + 1]);
+        ft_printf("a->tab[a->top] = %d | a->tab[a->top - 1] = %d\n", a->tab[a->top], a->tab[a->top - 1]);
 		sa(a);
     }
 }

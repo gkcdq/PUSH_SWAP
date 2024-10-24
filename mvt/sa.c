@@ -18,8 +18,8 @@ void    sa(t_tab *a)
 
     if (!a || a->top < 1)
         return ;
-tmp = a->tab[0];
-    a->tab[0] = a->tab[1];
+tmp = a->tab[a->top];
+    a->tab[a->top] = a->tab[1];
     a->tab[1] = tmp;
     ft_printf("sa\n");
 }
