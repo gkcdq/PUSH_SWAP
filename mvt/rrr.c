@@ -14,36 +14,36 @@
 
 static void    rrra(t_tab *a)
 {
-    int last;
-    int i = 0;
+    int first;
+    int i;
 
     if (!a || a->top < 1)
         return ;
-    last = a->tab[a->top];
-    i = a->top;
-    while (i > 0)
+    first = a->tab[0];
+    i = 0;
+    while (i < a->top)
     {
-        a->tab[i] = a->tab[i - 1];
-        i--;
+        a->tab[i] = a->tab[i + 1];
+        i++;
     }
-    a->tab[0] = last;
+    a->tab[a->top] = first;
 }
 
 static void    rrrb(t_tab *b)
 {
-    int last;
+    int first;
     int i;
 
-    if (!b || (b->top < 1))
+    if (!b || b->top < 1)
         return ;
-    last = b->tab[b->top];
-    i = b->top;
-    while (i > 0)
+    first = b->tab[0];
+    i = 0;
+    while (i < b->top)
     {
-        b->tab[i] = b->tab[i - 1];
-        i--;
+        b->tab[i] = b->tab[i + 1];
+        i++;
     }
-    b->tab[b->top] = last;
+    b->tab[b->top] = first;
 }
 
 void    rrr(t_tab *a, t_tab *b)

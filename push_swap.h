@@ -25,6 +25,8 @@ typedef struct s_tab
 	int		size;
 	int		top;
 	int		median;
+	int		cheapest;
+	int		target;
 }	t_tab;
 
 //moovement_fonctions
@@ -72,6 +74,8 @@ void    push_initial_two(t_tab *a, t_tab *b);
 void    ft_swap(int *a, int *b);
 int sort_in_tab_to_median(t_tab *a);
 void ft_parsing(int ac, char **av, t_tab *a);
+
+void	turk_algorithm(t_tab *a, t_tab *b);
 
 
 #endif

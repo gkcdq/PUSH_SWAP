@@ -76,6 +76,10 @@ int main(int ac, char **av)
         if (a->top <= 2)
             sort_tree(a);
     }
+    /*while (b->top != -1)
+    {
+        turk_algorithm(a, b);
+    }*/
 
 
     int k = 0;

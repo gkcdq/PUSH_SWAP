@@ -32,17 +32,17 @@ void	sort_tree(t_tab *a)
 	int	biggest_nbr;
 
 	biggest_nbr = find_max(a);
-	ft_printf("biggest_nbr = %d\n", biggest_nbr);
+	//ft_printf("biggest_nbr = %d\n", biggest_nbr);
 	if (a->tab[2] == biggest_nbr)
 		ra(a);
 	else if (a->tab[1] == biggest_nbr)
 	{
-		ft_printf("a->tab[1] = %d\n", a->tab[1]);
+		//ft_printf("a->tab[1] = %d\n", a->tab[1]);
 		rra(a);
 	}
 	if (a->tab[a->top] > a->tab[1])
     {
-        ft_printf("a->tab[a->top] = %d | a->tab[a->top - 1] = %d\n", a->tab[a->top], a->tab[a->top - 1]);
+        //ft_printf("a->tab[a->top] = %d | a->tab[a->top - 1] = %d\n", a->tab[a->top], a->tab[a->top - 1]);
 		sa(a);
     }
 }
@@ -52,14 +52,14 @@ void	rotate_or_push_a(t_tab *a, t_tab *b)
 	int	x;
 
 	x = a->median;
-	ft_printf("a->top = %d | a->bottom = %d\n", a->tab[a->top], a->tab[0]);
+	//ft_printf("a->top = %d | a->bottom = %d\n", a->tab[a->top], a->tab[0]);
 	if (a->tab[a->top] > a->tab[0])
 		ra(a);
 	else
 	{
 		pb(a, b);
-		ft_printf("b->tab[b->top] = %d | median = %d\n", b->tab[b->top], x);
-		if (b->tab[b->top] >= x)
+		//ft_printf("b->tab[b->top] = %d | median = %d\n", b->tab[b->top], x);
+		if (b->tab[b->top] < x)
 			rb(b);
 	}
 }
