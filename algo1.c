@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 22:31:09 by tmilin            #+#    #+#             */
+/*   Updated: 2024/10/26 22:31:11 by tmilin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_initial_two(t_tab *a, t_tab *b)
@@ -32,19 +44,12 @@ void	sort_tree(t_tab *a)
 	int	biggest_nbr;
 
 	biggest_nbr = find_max(a);
-	//ft_printf("biggest_nbr = %d\n", biggest_nbr);
 	if (a->tab[2] == biggest_nbr)
 		ra(a);
 	else if (a->tab[1] == biggest_nbr)
-	{
-		//ft_printf("a->tab[1] = %d\n", a->tab[1]);
 		rra(a);
-	}
 	if (a->tab[a->top] > a->tab[1])
-    {
-        //ft_printf("a->tab[a->top] = %d | a->tab[a->top - 1] = %d\n", a->tab[a->top], a->tab[a->top - 1]);
 		sa(a);
-    }
 }
 
 void	rotate_or_push_a(t_tab *a, t_tab *b)
@@ -52,13 +57,11 @@ void	rotate_or_push_a(t_tab *a, t_tab *b)
 	int	x;
 
 	x = a->median;
-	//ft_printf("a->top = %d | a->bottom = %d\n", a->tab[a->top], a->tab[0]);
 	if (a->tab[a->top] > a->tab[0])
 		ra(a);
 	else
 	{
 		pb(a, b);
-		//ft_printf("b->tab[b->top] = %d | median = %d\n", b->tab[b->top], x);
 		if (b->tab[b->top] >= x)
 			rb(b);
 	}
@@ -66,10 +69,11 @@ void	rotate_or_push_a(t_tab *a, t_tab *b)
 
 int	sort_in_tab_to_median(t_tab *a)
 {
-	int	median;
 	int	*tab;
+	int	median;
+	int	i;
+	int	j;
 
-	int i, j;
 	tab = malloc(sizeof(int) * a->size);
 	i = 0;
 	while (i < a->size)

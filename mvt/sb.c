@@ -6,20 +6,20 @@
 /*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:42:01 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/18 15:42:02 by tmilin           ###   ########.fr       */
+/*   Updated: 2024/10/26 22:33:57 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    sb(t_tab *b)
+void	sb(t_tab *b)
 {
-    int tmp;
+	int	tmp;
 
-    if (!b || b->top < 1)
-        return ;
-    tmp = b->tab[b->top];
-    b->tab[b->top] = b->tab[1];
-    b->tab[1] = tmp;
-    ft_printf("sb\n");
+	if (!b || b->top < 1)
+		return ;
+	tmp = b->tab[b->top];
+	b->tab[b->top] = b->tab[1];
+	b->tab[1] = tmp;
+	ft_printf("sb\n");
 }

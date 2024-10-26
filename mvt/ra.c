@@ -12,20 +12,20 @@
 
 #include "../push_swap.h"
 
-void    ra(t_tab *a)
+void	ra(t_tab *a)
 {
-    int last;
-    int i;
+	int	last;
+	int	i;
 
-    if (!a || a->top < 1)
-        return ;
-    last = a->tab[a->top];
-    i = a->top;
-    while (i > 0)
-    {
-        a->tab[i] = a->tab[i - 1];
-        i--;
-    }
-    a->tab[0] = last;
-    ft_printf("ra\n");
+	if (!a || a->top < 1)
+		return ;
+	last = a->tab[a->top];
+	i = a->top;
+	while (i > 0)
+	{
+		a->tab[i] = a->tab[i - 1];
+		i--;
+	}
+	a->tab[0] = last;
+	ft_printf("ra\n");
 }

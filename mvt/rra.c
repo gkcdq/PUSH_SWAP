@@ -6,26 +6,26 @@
 /*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:40:56 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/18 15:40:58 by tmilin           ###   ########.fr       */
+/*   Updated: 2024/10/26 22:33:04 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rra(t_tab *a)
+void	rra(t_tab *a)
 {
-    int first;
-    int i;
+	int	first;
+	int	i;
 
-    if (!a || a->top < 1)
-        return ;
-    first = a->tab[0];
-    i = 0;
-    while (i < a->top)
-    {
-        a->tab[i] = a->tab[i + 1];
-        i++;
-    }
-    a->tab[a->top] = first;
-    ft_printf("rra\n");
+	if (!a || a->top < 1)
+		return ;
+	first = a->tab[0];
+	i = 0;
+	while (i < a->top)
+	{
+		a->tab[i] = a->tab[i + 1];
+		i++;
+	}
+	a->tab[a->top] = first;
+	ft_printf("rra\n");
 }

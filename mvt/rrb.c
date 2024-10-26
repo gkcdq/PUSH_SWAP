@@ -6,24 +6,24 @@
 /*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:41:04 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/18 15:41:05 by tmilin           ###   ########.fr       */
+/*   Updated: 2024/10/26 22:33:19 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rrb(t_tab *b)
+void	rrb(t_tab *b)
 {
-    int first;
-    int i;
+	int first;
+	int i;
 
-    first = b->tab[0];
-    i = 0;
-    while (i < b->top)
-    {
-        b->tab[i] = b->tab[i + 1];
-        i++;
-    }
-    b->tab[b->top] = first;
-    ft_printf("rrb\n");
+	first = b->tab[0];
+	i = 0;
+	while (i < b->top)
+	{
+		b->tab[i] = b->tab[i + 1];
+		i++;
+	}
+	b->tab[b->top] = first;
+	ft_printf("rrb\n");
 }
