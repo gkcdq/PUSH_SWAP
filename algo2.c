@@ -90,7 +90,7 @@ void	calculate_size(t_tab *x)
 	x->size_tab = x->top / 2;
 }
 
-void	turk_algorithm(t_tab *a, t_tab *b)
+void	algorithm(t_tab *a, t_tab *b)
 {
 	int	cheapest_index;
 	int	target_index;

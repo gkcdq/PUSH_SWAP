@@ -75,12 +75,7 @@ int	sort_in_tab_to_median(t_tab *a)
 	int	j;
 
 	tab = malloc(sizeof(int) * a->size);
-	i = 0;
-	while (i < a->size)
-	{
-		tab[i] = a->tab[i];
-		i++;
-	}
+	for_norminette1(a, tab);
 	i = 0;
 	while (i < a->size - 1)
 	{
@@ -96,4 +91,16 @@ int	sort_in_tab_to_median(t_tab *a)
 	median = tab[a->size / 2];
 	free(tab);
 	return (median);
+}
+
+void	for_norminette1(t_tab *a, int *tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < a->size)
+	{
+		tab[i] = a->tab[i];
+		i++;
+	}
 }

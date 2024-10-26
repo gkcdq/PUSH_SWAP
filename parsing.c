@@ -82,31 +82,28 @@ int	ft_is_valid_number(char *str)
 
 void	ft_check_double(t_tab *a, t_tab *b, char **args)
 {
-	int	i;
-	int	j;
-
-	i = a->top;
+	a->i = a->top;
 	if (!a || a->top < 1)
 		return ;
-	while (i > 0)
+	while (a->i > 0)
 	{
-		j = i - 1;
-		while (j > 0)
+		a->j = a->i - 1;
+		while (a->j > 0)
 		{
-			ft_compare_int(a->tab[i], a->tab[j], a, b, args);
-			j--;
+			ft_compare_int(a, b, args);
+			a->j--;
 		}
-		i--;
+		a->i--;
 	}
 }
 
-void	ft_compare_int(int a, int b, t_tab *o, t_tab *d, char **args)
+void	ft_compare_int(t_tab *a, t_tab *b, char **args)
 {
-	if (a == b)
+	if (a->i == a->j)
 	{
 		ft_printf("Error\n");
 		free_args(args);
-		free_t_tab(o, d);
+		free_t_tab(a, b);
 		exit(1);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 22:34:32 by tmilin            #+#    #+#             */
-/*   Updated: 2024/10/26 22:34:33 by tmilin           ###   ########.fr       */
+/*   Updated: 2024/10/26 23:20:45 by tmilin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,17 @@ int	ft_check_tri(t_tab *a)
 	return (1);
 }
 
-////////////////////////////////////////////////////////////
-
-// Free the allocated memory for an array of strings
 void	ft_freetab(char **strs)
 {
+	int	i;
+
+	i = 0;
 	if (!strs)
 		return ;
-	for (int i = 0; strs[i]; i++)
+	while (strs[i])
 	{
 		free(strs[i]);
+		i++;
 	}
 	free(strs);
 }
