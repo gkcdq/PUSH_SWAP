@@ -42,6 +42,16 @@ int    *reverse_tab(int *tab, int size)
     return (tab);
 }
 
+void    init_struct_value(t_tab *a, t_tab *b)
+{
+    a->median = 0;
+    b->median = 0;
+    a->target = 0;
+    b->target = 0;
+	a->cheapest = 0;
+    b->cheapest = 0;
+}
+
 int main(int ac, char **av) 
 {
     if (ac < 2)
@@ -60,7 +70,7 @@ int main(int ac, char **av)
         b = init_stack(size);
 		free_args(args);
     } 
-
+    init_struct_value(a, b);
     ft_parsing(ac, av, a);
     reverse_tab(a->tab, a->size);
     a->median = sort_in_tab_to_median(a);
@@ -76,10 +86,10 @@ int main(int ac, char **av)
         if (a->top <= 2)
             sort_tree(a);
     }
-    /*while (b->top != -1)
+    while (b->top > -1)
     {
         turk_algorithm(a, b);
-    }*/
+    }
 
 
     int k = 0;

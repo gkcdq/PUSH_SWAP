@@ -59,7 +59,7 @@ void	rotate_or_push_a(t_tab *a, t_tab *b)
 	{
 		pb(a, b);
 		//ft_printf("b->tab[b->top] = %d | median = %d\n", b->tab[b->top], x);
-		if (b->tab[b->top] < x)
+		if (b->tab[b->top] >= x)
 			rb(b);
 	}
 }
