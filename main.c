@@ -74,10 +74,10 @@ int main(int ac, char **av)
     ft_parsing(ac, av, a);
     reverse_tab(a->tab, a->size);
     a->median = sort_in_tab_to_median(a);
-    ft_printf("median = %d\n", a->median);
-    ft_printf("a->tab[a->top] = %d\n", a->tab[a->top]);
-    ft_printf("a->tab[0] = %d\n", a->tab[0]);
-    ft_printf("a->top = %d\n", a->top);
+    //ft_printf("median = %d\n", a->median);
+    //ft_printf("a->tab[a->top] = %d\n", a->tab[a->top]);
+    //ft_printf("a->tab[0] = %d\n", a->tab[0]);
+    //ft_printf("a->top = %d\n", a->top);
     if (a->top <= 2)
             sort_tree(a);
     while (!ft_check_tri(a) && a->top > 2)
@@ -90,19 +90,22 @@ int main(int ac, char **av)
     {
         turk_algorithm(a, b);
     }
+    int max = find_max(a);
+    while (a->tab[0] != max)
+        ra(a);
 
 
     int k = 0;
-    ft_printf("\npile a\n");
+    //ft_printf("\npile a\n");
     while (k <= a->top) 
 	{
-        ft_printf("%d\n", a->tab[k]);
+        //ft_printf("%d\n", a->tab[k]);
         k++;
     }
     k = 0;
-    ft_printf("\npile b\n");
+    //ft_printf("\npile b\n");
     while (k <= b->top) {
-        ft_printf("%d\n", b->tab[k]);
+        //ft_printf("%d\n", b->tab[k]);
         k++;
     }
     free_t_tab(a, b);

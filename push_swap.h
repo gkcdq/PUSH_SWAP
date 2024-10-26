@@ -27,6 +27,7 @@ typedef struct s_tab
 	int		median;
 	int		cheapest;
 	int		target;
+	int		size_tab;
 }	t_tab;
 
 //moovement_fonctions
@@ -76,6 +77,7 @@ int sort_in_tab_to_median(t_tab *a);
 void ft_parsing(int ac, char **av, t_tab *a);
 
 void	turk_algorithm(t_tab *a, t_tab *b);
+int	find_max(t_tab *a);
 
 
 #endif
