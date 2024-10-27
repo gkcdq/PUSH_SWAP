@@ -12,17 +12,6 @@
 
 #include "push_swap.h"
 
-void	push_initial_two(t_tab *a, t_tab *b)
-{
-	if (a->top == 3)
-		pb(a, b);
-	else
-	{
-		pb(a, b);
-		pb(a, b);
-	}
-}
-
 int	find_max(t_tab *a)
 {
 	int	i;
@@ -75,7 +64,7 @@ int	sort_in_tab_to_median(t_tab *a)
 	int	j;
 
 	tab = malloc(sizeof(int) * a->size);
-	for_norminette1(a, tab);
+	copy_tab(a, tab);
 	i = 0;
 	while (i < a->size - 1)
 	{
@@ -93,7 +82,7 @@ int	sort_in_tab_to_median(t_tab *a)
 	return (median);
 }
 
-void	for_norminette1(t_tab *a, int *tab)
+void	copy_tab(t_tab *a, int *tab)
 {
 	int	i;
 
