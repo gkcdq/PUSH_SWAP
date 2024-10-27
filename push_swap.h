@@ -26,6 +26,7 @@ typedef struct s_tab
 	int	size_tab;
 	int	i;
 	int	j;
+	int	ac;
 }		t_tab;
 
 // moovement_fonctions
@@ -48,6 +49,8 @@ void	ss(t_tab *a, t_tab *b);
 
 // src_fonctions
 
+void	verif2(char **args, char *arg, t_tab *a, t_tab *b);
+char	**parse_and_get_size(int ac, char **av, int *size);
 void	rotate_or_push_a(t_tab *a, t_tab *b);
 void	verif(char **args, char *arg, t_tab *a, t_tab *b);
 int		ft_is_valid_number(char *str);
@@ -68,7 +71,6 @@ int		sort_in_tab_to_median(t_tab *a);
 void	ft_parsing(int ac, char **av, t_tab *a, t_tab *b);
 void	algorithm(t_tab *a, t_tab *b);
 int		find_max(t_tab *a);
-void	free_t_tab_a(t_tab *a);
 void	copy_tab(t_tab *a, int *tab);
 void	rotate_or_push_to_sort_tree_to_algorithm_to_max(t_tab *a, t_tab *b);
 void	alloc_tab(t_tab **a, t_tab **b, int ac, char **av);

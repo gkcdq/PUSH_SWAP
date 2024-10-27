@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo3.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmilin <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/27 19:20:18 by tmilin            #+#    #+#             */
+/*   Updated: 2024/10/27 19:20:19 by tmilin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	calculate_size(t_tab *x)
@@ -40,9 +52,9 @@ void	algorithm(t_tab *a, t_tab *b)
 	b->cheapest = b->tab[cheapest_index];
 	target_index = find_target_index_in_a(a, b->cheapest);
 	a->target = a->tab[target_index];
-	if (cheapest_index >= b->size_tab && target_index >= a->size_tab)
+	if (cheapest_index >= b->size_tab && target_index > a->size_tab)
 		rotate_both(a, b);
-	else if (cheapest_index < b->size_tab && target_index < a->size_tab)
+	else if (cheapest_index < b->size_tab && target_index <= a->size_tab)
 		reverse_rotate_both(a, b);
 	before_push_a(a, target_index);
 	before_push_b(b, cheapest_index);

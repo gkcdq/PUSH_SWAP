@@ -51,6 +51,11 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	alloc_tab(&a, &b, ac, av);
+	if (a == NULL || b == NULL)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
 	init_struct_value(a, b);
 	ft_parsing(ac, av, a, b);
 	reverse_tab(a->tab, a->size);

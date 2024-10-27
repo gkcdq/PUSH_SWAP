@@ -71,7 +71,7 @@ int	sort_in_tab_to_median(t_tab *a)
 		j = 0;
 		while (j < a->size - i - 1)
 		{
-			if (tab[j] > tab[j + 1])
+			if (tab[j] < tab[j + 1])
 				ft_swap(&tab[j], &tab[j + 1]);
 			j++;
 		}

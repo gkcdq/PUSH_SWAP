@@ -78,7 +78,7 @@ void	ft_freetab(char **strs)
 
 void	ft_swap(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;

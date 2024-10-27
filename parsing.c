@@ -44,7 +44,10 @@ void	ft_parsing(int ac, char **av, t_tab *a, t_tab *b)
 	args = parse_and_get_size(ac, av, &size);
 	while (i < size)
 	{
-		verif(args, args[i], a, b);
+		if (ac == 2)
+			verif(args, args[i], a, b);
+		else
+			verif2(args, args[i], a, b);
 		a->tab[++a->top] = ft_atol(args[i]);
 		i++;
 	}
@@ -64,45 +67,12 @@ void	verif(char **args, char *arg, t_tab *a, t_tab *b)
 	}
 }
 
-int	ft_is_valid_number(char *str)
+void	verif2(char **args, char *arg, t_tab *a, t_tab *b)
 {
-	long int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void	ft_check_double(t_tab *a, t_tab *b, char **args)
-{
-	a->i = a->top;
-	if (!a || a->top < 1)
-		return ;
-	while (a->i > 0)
-	{
-		a->j = a->i - 1;
-		while (a->j > 0)
-		{
-			ft_compare_int(a, b, args);
-			a->j--;
-		}
-		a->i--;
-	}
-}
-
-void	ft_compare_int(t_tab *a, t_tab *b, char **args)
-{
-	if (a->i == a->j)
+	(void)args;
+	if (!ft_is_valid_number(arg))
 	{
 		ft_printf("Error\n");
-		free_args(args);
 		free_t_tab(a, b);
 		exit(1);
 	}
