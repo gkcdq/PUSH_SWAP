@@ -46,9 +46,9 @@ void	rotate_or_push_a(t_tab *a, t_tab *b)
 	int	x;
 
 	x = a->median;
-	if (a->tab[a->top] > a->tab[0])
+	if (!ft_check_tri(a) && a->tab[a->top] > a->tab[0])
 		ra(a);
-	else
+	else if (!ft_check_tri(a) && a->tab[a->top] < a->tab[0])
 	{
 		pb(a, b);
 		if (b->tab[b->top] >= x)

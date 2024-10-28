@@ -22,7 +22,7 @@ void	init_struct_value(t_tab *a, t_tab *b)
 	b->cheapest = 0;
 	a->size_tab = 0;
 	b->size_tab = 0;
-	a->i = 0;
+	a->i = 1;
 	a->j = 0;
 }
 

@@ -28,29 +28,43 @@ int	ft_is_valid_number(char *str)
 	return (1);
 }
 
-void	ft_check_double(t_tab *a, t_tab *b, char **args)
+void	ft_check_double(t_tab *a, t_tab *b, char **args, int ac)
 {
-	a->i = a->top;
+	a->i = 0;
 	if (!a || a->top < 1)
 		return ;
-	while (a->i > 0)
+	while (a->i <= a->top)
 	{
-		a->j = a->i - 1;
-		while (a->j > 0)
+		a->j = a->i + 1;
+		while (a->j <= a->top)
 		{
-			ft_compare_int(a, b, args);
-			a->j--;
+			if (ac == 2)
+				ft_compare_int(a, b, args);
+			else
+				ft_compare_int2(a, b, args);
+			a->j++;
 		}
-		a->i--;
+		a->i++;
 	}
 }
 
 void	ft_compare_int(t_tab *a, t_tab *b, char **args)
 {
-	if (a->i == a->j)
+	if (a->tab[a->i] == a->tab[a->j])
 	{
 		ft_printf("Error\n");
 		free_args(args);
+		free_t_tab(a, b);
+		exit(1);
+	}
+}
+
+void	ft_compare_int2(t_tab *a, t_tab *b, char **args)
+{
+	(void)args;
+	if (a->tab[a->i] == a->tab[a->j])
+	{
+		ft_printf("Error\n");
 		free_t_tab(a, b);
 		exit(1);
 	}

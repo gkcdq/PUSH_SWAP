@@ -51,7 +51,7 @@ void	ft_parsing(int ac, char **av, t_tab *a, t_tab *b)
 		a->tab[++a->top] = ft_atol(args[i]);
 		i++;
 	}
-	ft_check_double(a, b, args);
+	ft_check_double(a, b, args, ac);
 	if (ac == 2)
 		free_args(args);
 }

@@ -54,7 +54,8 @@ char	**parse_and_get_size(int ac, char **av, int *size);
 void	rotate_or_push_a(t_tab *a, t_tab *b);
 void	verif(char **args, char *arg, t_tab *a, t_tab *b);
 int		ft_is_valid_number(char *str);
-void	ft_check_double(t_tab *a, t_tab *b, char **args);
+void	ft_check_double(t_tab *a, t_tab *b, char **args, int ac);
+void	ft_compare_int2(t_tab *a, t_tab *b, char **args);
 void	ft_compare_int(t_tab *a, t_tab *b, char **args);
 void	free_args(char **args);
 int		ft_atol(char *str);
@@ -79,5 +80,6 @@ int		find_cheapest_index_in_b(t_tab *b);
 void	rotate_both(t_tab *a, t_tab *b);
 void	reverse_rotate_both(t_tab *a, t_tab *b);
 void	init_struct_value(t_tab *a, t_tab *b);
+void	sort_two(t_tab *a);
 
 #endif

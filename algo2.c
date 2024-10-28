@@ -58,3 +58,14 @@ void	reverse_rotate_both(t_tab *a, t_tab *b)
 	while (b->tab[b->top] != b->cheapest && a->tab[a->top] != a->target)
 		rrr(a, b);
 }
+
+void	sort_two(t_tab *a)
+{
+	int	biggest_nbr;
+
+	biggest_nbr = find_max(a);
+	if (a->tab[1] == biggest_nbr)
+		sa(a);
+	else
+		return ;
+}

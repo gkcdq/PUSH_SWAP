@@ -53,11 +53,15 @@ int	main(int ac, char **av)
 	alloc_tab(&a, &b, ac, av);
 	if (a == NULL || b == NULL)
 	{
-		ft_printf("Error\n");
 		return (1);
 	}
 	init_struct_value(a, b);
 	ft_parsing(ac, av, a, b);
+	if (ft_check_tri(a))
+	{
+		free_t_tab(a, b);
+		return (0);
+	}
 	reverse_tab(a->tab, a->size);
 	a->median = sort_in_tab_to_median(a);
 	rotate_or_push_to_sort_tree_to_algorithm_to_max(a, b);
@@ -91,8 +95,13 @@ void	rotate_or_push_to_sort_tree_to_algorithm_to_max(t_tab *a, t_tab *b)
 {
 	int	max;
 
-	if (a->top <= 2)
-		sort_tree(a);
+	if (a->top == 1)
+	{
+		sort_two(a);
+		return ;
+	}
+	if (a->top == 2)
+			sort_tree(a);
 	while (!ft_check_tri(a) && a->top > 2)
 	{
 		rotate_or_push_a(a, b);
